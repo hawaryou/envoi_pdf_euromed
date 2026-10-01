@@ -1,7 +1,7 @@
 // Configuration — EuroMed Protocoles / Notices
 // Après avoir déployé Code.gs comme application Web,
 // remplacez l'URL ci-dessous par votre URL /exec.
-window.GOOGLE_APPS_SCRIPT_URL = 'COLLER_ICI_L_URL_DE_VOTRE_SCRIPT';
+window.GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVPvdUeBvP2gJdjfs2zhZwpQPHJ0NqvEozKFLu4QNpbsmv9V7rZhVa--iJvY8WmVGv/exec';
 
 window.GITHUB_OWNER = 'hawaryou';
 window.GITHUB_REPO = 'bon-livraison-documents';
