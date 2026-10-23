@@ -401,11 +401,19 @@ async function sendDocuments(data) {
     // script.googleusercontent.com, ce qui peut provoquer un blocage CORS.
     // mode:no-cors permet d'envoyer la requête sans lire la réponse.
     // Le navigateur ne peut donc pas confirmer le résultat serveur.
-    await fetch(APP_URL, {
+    const sendResponse = await fetch(APP_URL, {
       method: 'POST',
       mode: 'no-cors',
       body: payload
     });
+    if (sendResponse.status === 202) {
+      const queued = await sendResponse.json();
+      if (queued.queued) {
+        $('modalStatus').innerHTML = '<span class="success">📴 Demande enregistrée dans la file locale. Elle sera proposée à l’envoi au retour du réseau.</span>';
+        $('status').innerHTML = '<span class="success">Demande conservée hors connexion.</span>';
+        return;
+      }
+    }
 
     $('modalStatus').innerHTML =
       `<span class="success">✓ Demande d’envoi transmise pour ${escapeHtml(data.email)}. ` +
